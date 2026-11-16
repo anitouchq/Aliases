@@ -1,0 +1,29 @@
+# DEMONSTRATION SAMPLE ONLY
+# Synthetic entries formatted to resemble MySQL 8.0 General Query Log.
+# This file was not captured from a running MySQL server.
+# Run collect_artifacts.ps1 against your own MySQL container to replace it with a real log.
+
+2026-11-16T06:20:01.000000Z		8 Connect	root@localhost on
+2026-11-16T06:20:01.002000Z		8 Query	select @@version_comment limit 1
+2026-11-16T06:20:01.010000Z		8 Query	CREATE DATABASE IF NOT EXISTS alias_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
+2026-11-16T06:20:01.014000Z		8 Query	USE alias_db
+2026-11-16T06:20:01.020000Z		8 Query	DROP TABLE IF EXISTS orders
+2026-11-16T06:20:01.024000Z		8 Query	DROP TABLE IF EXISTS customers
+2026-11-16T06:20:01.028000Z		8 Query	DROP TABLE IF EXISTS employees
+2026-11-16T06:20:01.034000Z		8 Query	CREATE TABLE customers (customer_id INT PRIMARY KEY, first_name VARCHAR(50), last_name VARCHAR(50), city VARCHAR(80))
+2026-11-16T06:20:01.041000Z		8 Query	CREATE TABLE orders (order_id INT PRIMARY KEY, customer_id INT, order_date DATE, total DECIMAL(10,2))
+2026-11-16T06:20:01.048000Z		8 Query	CREATE TABLE employees (employee_id INT PRIMARY KEY, employee_name VARCHAR(100), manager_id INT NULL)
+2026-11-16T06:20:01.055000Z		8 Query	INSERT INTO customers VALUES (1,'Ivan','Ivanov','Moscow'),(2,'Petr','Petrov','Saint Petersburg'),(3,'Maria','Sidorova','Moscow'),(4,'Alexey','Smirnov','Kazan'),(5,'Olga','Kuznetsova','Novosibirsk')
+2026-11-16T06:20:01.063000Z		8 Query	INSERT INTO orders VALUES (101,1,'2026-10-01',1250.00),(102,1,'2026-10-05',800.00),(103,2,'2026-10-07',2400.00),(104,3,'2026-10-09',560.00),(105,5,'2026-10-11',3100.00)
+2026-11-16T06:20:01.071000Z		8 Query	INSERT INTO employees VALUES (1,'Anna',NULL),(2,'Boris',1),(3,'Vera',1),(4,'Dmitry',2)
+2026-11-16T06:20:01.080000Z		8 Query	SELECT first_name AS name, last_name AS surname FROM customers
+2026-11-16T06:20:01.084000Z		8 Query	SELECT customer_id AS id, total AS order_total FROM orders
+2026-11-16T06:20:01.088000Z		8 Query	SELECT c.first_name AS customer_name, o.total AS amount FROM customers AS c INNER JOIN orders AS o ON o.customer_id = c.customer_id
+2026-11-16T06:20:01.093000Z		8 Query	SELECT c.first_name AS customer_name, o.order_id AS order_number FROM customers c LEFT JOIN orders o ON o.customer_id = c.customer_id
+2026-11-16T06:20:01.098000Z		8 Query	SELECT e.employee_name AS employee, m.employee_name AS manager FROM employees e LEFT JOIN employees m ON e.manager_id = m.employee_id
+2026-11-16T06:20:01.104000Z		8 Query	SELECT c.city AS city_name, COUNT(o.order_id) AS orders_count FROM customers c LEFT JOIN orders o ON o.customer_id = c.customer_id GROUP BY c.city HAVING COUNT(o.order_id) > 0
+2026-11-16T06:20:01.111000Z		8 Query	SELECT first_name AS name FROM customers WHERE customer_id IN (SELECT customer_id AS id FROM orders WHERE total > 1000)
+2026-11-16T06:20:01.118000Z		8 Query	SELECT c.first_name AS customer, SUM(o.total) AS total_spent FROM customers AS c JOIN orders AS o USING (customer_id) GROUP BY c.customer_id, c.first_name ORDER BY total_spent DESC
+2026-11-16T06:20:01.125000Z		8 Query	SHOW TABLES
+2026-11-16T06:20:01.129000Z		8 Query	SELECT COUNT(*) AS customer_count FROM customers
+2026-11-16T06:20:01.133000Z		8 Quit	
