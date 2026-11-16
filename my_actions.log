@@ -1,0 +1,25 @@
+# DEMONSTRATION SAMPLE ONLY
+# Human-readable summary of the SQL actions represented in general.log.
+# Synthetic documentation; not captured from a live database session.
+# Replace with actual output by running collect_artifacts.ps1 against your MySQL container.
+
+[2026-11-16 06:20:01] CONNECT root@localhost
+[2026-11-16 06:20:01] CREATE DATABASE alias_db
+[2026-11-16 06:20:01] USE alias_db
+[2026-11-16 06:20:01] CREATE TABLE customers
+[2026-11-16 06:20:01] CREATE TABLE orders
+[2026-11-16 06:20:01] CREATE TABLE employees
+[2026-11-16 06:20:01] INSERT customers: 5 demonstration rows
+[2026-11-16 06:20:01] INSERT orders: 5 demonstration rows
+[2026-11-16 06:20:01] INSERT employees: 4 demonstration rows
+[2026-11-16 06:20:01] SELECT column aliases: first_name AS name, last_name AS surname
+[2026-11-16 06:20:01] SELECT column aliases: customer_id AS id, total AS order_total
+[2026-11-16 06:20:01] JOIN with table aliases: customers AS c, orders AS o
+[2026-11-16 06:20:01] LEFT JOIN with table aliases: customers c, orders o
+[2026-11-16 06:20:01] SELF JOIN: employees e joined to employees m
+[2026-11-16 06:20:01] GROUP BY and HAVING with aliases: city_name, orders_count
+[2026-11-16 06:20:01] Subquery with selected alias: name
+[2026-11-16 06:20:01] Aggregate query with aliases: customer, total_spent
+[2026-11-16 06:20:01] SHOW TABLES
+[2026-11-16 06:20:01] COUNT(*) AS customer_count
+[2026-11-16 06:20:01] DISCONNECT
