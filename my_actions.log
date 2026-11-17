@@ -1,25 +1,30 @@
-# DEMONSTRATION SAMPLE ONLY
-# Human-readable summary of the SQL actions represented in general.log.
-# Synthetic documentation; not captured from a live database session.
-# Replace with actual output by running collect_artifacts.ps1 against your MySQL container.
-
-[2026-11-16 06:20:01] CONNECT root@localhost
-[2026-11-16 06:20:01] CREATE DATABASE alias_db
-[2026-11-16 06:20:01] USE alias_db
-[2026-11-16 06:20:01] CREATE TABLE customers
-[2026-11-16 06:20:01] CREATE TABLE orders
-[2026-11-16 06:20:01] CREATE TABLE employees
-[2026-11-16 06:20:01] INSERT customers: 5 demonstration rows
-[2026-11-16 06:20:01] INSERT orders: 5 demonstration rows
-[2026-11-16 06:20:01] INSERT employees: 4 demonstration rows
-[2026-11-16 06:20:01] SELECT column aliases: first_name AS name, last_name AS surname
-[2026-11-16 06:20:01] SELECT column aliases: customer_id AS id, total AS order_total
-[2026-11-16 06:20:01] JOIN with table aliases: customers AS c, orders AS o
-[2026-11-16 06:20:01] LEFT JOIN with table aliases: customers c, orders o
-[2026-11-16 06:20:01] SELF JOIN: employees e joined to employees m
-[2026-11-16 06:20:01] GROUP BY and HAVING with aliases: city_name, orders_count
-[2026-11-16 06:20:01] Subquery with selected alias: name
-[2026-11-16 06:20:01] Aggregate query with aliases: customer, total_spent
-[2026-11-16 06:20:01] SHOW TABLES
-[2026-11-16 06:20:01] COUNT(*) AS customer_count
-[2026-11-16 06:20:01] DISCONNECT
+2026-11-17T07:03:39.647602Z	    9 Query	DROP DATABASE IF EXISTS alias_db
+2026-11-17T07:03:39.680219Z	    9 Query	SELECT DATABASE()
+2026-11-17T07:03:39.681089Z	    9 Query	CREATE DATABASE alias_db
+2026-11-17T07:03:39.685536Z	    9 Query	SELECT DATABASE()
+2026-11-17T07:03:39.691450Z	    9 Query	CREATE TABLE customers (
+2026-11-17T07:03:39.718975Z	    9 Query	CREATE TABLE orders (
+2026-11-17T07:03:39.743232Z	    9 Query	CREATE TABLE employees (
+2026-11-17T07:03:39.767862Z	    9 Query	INSERT INTO customers (name, email, city) VALUES
+2026-11-17T07:03:39.776665Z	    9 Query	INSERT INTO orders (customer_id, order_date, amount, status) VALUES
+2026-11-17T07:03:39.781870Z	    9 Query	INSERT INTO employees (name, position, manager_id) VALUES
+2026-11-17T07:03:39.790521Z	    9 Query	SHOW TABLES
+2026-11-17T07:03:39.793195Z	    9 Query	SELECT * FROM customers
+2026-11-17T07:03:39.794629Z	    9 Query	SELECT * FROM orders
+2026-11-17T07:03:39.796298Z	    9 Query	SELECT * FROM employees
+2026-11-17T07:03:39.797765Z	    9 Query	SELECT customers.name, orders.order_date, orders.amount
+2026-11-17T07:03:39.799098Z	    9 Query	SELECT c.name, o.order_date, o.amount
+2026-11-17T07:03:39.800605Z	    9 Query	SELECT name AS customer_name,
+2026-11-17T07:03:39.801836Z	    9 Query	SELECT customer_id,
+2026-11-17T07:03:39.802506Z	    9 Query	SELECT id, amount * 2 AS double_amount
+2026-11-17T07:03:39.803895Z	    9 Query	SELECT id, amount * 2 AS double_amount
+2026-11-17T07:03:39.806005Z	    9 Query	SELECT e.name AS employee,
+2026-11-17T07:03:39.808066Z	    9 Query	SELECT *
+2026-11-17T07:03:39.810399Z	    9 Query	SELECT c.name,
+2026-11-17T07:03:39.813130Z	    9 Query	SELECT c.name AS customer,
+2026-11-17T07:03:39.815566Z	    9 Query	SELECT c.name, o.total
+2026-11-17T07:03:39.817880Z	    9 Query	SELECT customer_id,
+2026-11-17T07:03:39.818969Z	    9 Query	DESCRIBE customers
+2026-11-17T07:03:39.822295Z	    9 Query	DESCRIBE orders
+2026-11-17T07:03:39.823539Z	    9 Query	DESCRIBE employees
+2026-11-17T07:03:40.524973Z	    9 Query	SELECT VERSION()
