@@ -123,19 +123,8 @@ Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 Файлы `general.log`, `my_actions.log` и `alias_dump.sql` после этого должны быть получены из вашего контейнера. Не заменяйте их вручную набранными примерами: лог должен отражать реальное выполнение запросов.
 
 ## 5. Результаты
-<img width="523" height="280" alt="2" src="https://github.com/user-attachments/assets/f8dc67c3-5597-4f05-8199-8624adca8293" />
-<img width="1041" height="257" alt="1" src="https://github.com/user-attachments/assets/6bd335e5-1401-4152-8cd2-a69adf4d1e49" />
-<img width="856" height="272" alt="3" src="https://github.com/user-attachments/assets/d4600a2e-6abf-4432-bed7-0fd1692e3fbf" />
-<img width="497" height="233" alt="4" src="https://github.com/user-attachments/assets/76c04209-1b9c-4c12-a788-82b307cec088" />
-<img width="407" height="207" alt="5" src="https://github.com/user-attachments/assets/a4649f06-9aea-4b72-904a-f04bfeb84a2d" />
-<img width="245" height="263" alt="6" src="https://github.com/user-attachments/assets/16c72875-c2f5-4db1-86fa-879b53de58c6" />
-<img width="387" height="167" alt="7" src="https://github.com/user-attachments/assets/ff433423-4d42-4e27-b27a-3d03c6d0c4f8" />
-<img width="452" height="230" alt="8" src="https://github.com/user-attachments/assets/82d3500e-0c75-458e-aa54-96624d4c87b9" />
-<img width="640" height="177" alt="9" src="https://github.com/user-attachments/assets/e5dd47ba-b796-419d-98d7-773797bf8732" />
-<img width="577" height="197" alt="10" src="https://github.com/user-attachments/assets/9a0005d2-daa9-4438-b2f7-b636882afecd" />
 
-
-
+Добавьте в папку `screenshots/` девять скриншотов, перечисленных в структуре проекта выше. Каждый скриншот должен подтверждать соответствующий этап выполнения работы.
 
 ## Вывод
 
